@@ -20,10 +20,14 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 bindsym $mod+Return exec kitty
+bindsym $mod+t exec kitty
+
 bindsym $mod+x kill
 bindsym $mod+BackSpace kill
 
 bindsym $mod+d exec ~/.config/rofi/scripts/launcher_t3
+bindsym $mod+r exec ~/.config/rofi/scripts/powermenu_t1
+bindsym $mod+q exec "sh -c ~/.config/rofi/web.sh"
 
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -110,6 +114,6 @@ mode "resize" {
     bindsym $mod+r mode "default"
 }
 
-bindsym $mod+r mode "resize"
+#bindsym $mod+r mode "resize"
 
 exec_always "sh -c ~/.config/polybar/polybar.sh"

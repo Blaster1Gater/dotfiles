@@ -1,0 +1,86 @@
+dez 08 12:43:10 nixos systemd[1]: Started Wallpaper Daemon for swww.
+dez 08 12:43:10 nixos swww-daemon[253230]: thread 'main' panicked at daemon/src/main.rs:122:45:
+dez 08 12:43:10 nixos swww-daemon[253230]: failed to connect to the wayland server: NoCompositor
+dez 08 12:43:10 nixos swww-daemon[253230]: note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+dez 08 12:43:10 nixos swww-daemon[253230]: 15:43:10 [INFO] (main) Removed socket at "/tmp/swww/swww-wayland-0.socket"
+dez 08 12:43:10 nixos systemd[1]: [0;1;39m[0;1;31m[0;1;39mswww-daemon.service: Main process exited, code=exited, status=101/n/a[0m
+dez 08 12:43:10 nixos systemd[1]: [0;1;38:5:185m[0;1;39m[0;1;38:5:185mswww-daemon.service: Failed with result 'exit-code'.[0m
+dez 08 12:43:10 nixos systemd[1]: swww-daemon.service: Scheduled restart job, restart counter is at 1.
+dez 08 12:43:10 nixos systemd[1]: Started Wallpaper Daemon for swww.
+dez 08 12:43:10 nixos swww-daemon[253324]: thread 'main' panicked at daemon/src/main.rs:122:45:
+dez 08 12:43:10 nixos swww-daemon[253324]: failed to connect to the wayland server: NoCompositor
+dez 08 12:43:10 nixos swww-daemon[253324]: note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+dez 08 12:43:10 nixos swww-daemon[253324]: 15:43:10 [INFO] (main) Removed socket at "/tmp/swww/swww-wayland-0.socket"
+dez 08 12:43:10 nixos systemd[1]: [0;1;39m[0;1;31m[0;1;39mswww-daemon.service: Main process exited, code=exited, status=101/n/a[0m
+dez 08 12:43:10 nixos systemd[1]: [0;1;38:5:185m[0;1;39m[0;1;38:5:185mswww-daemon.service: Failed with result 'exit-code'.[0m
+dez 08 12:43:10 nixos systemd[1]: swww-daemon.service: Scheduled restart job, restart counter is at 2.
+dez 08 12:43:10 nixos systemd[1]: Started Wallpaper Daemon for swww.
+dez 08 12:43:10 nixos swww-daemon[253357]: thread 'main' panicked at daemon/src/main.rs:122:45:
+dez 08 12:43:10 nixos swww-daemon[253357]: failed to connect to the wayland server: NoCompositor
+dez 08 12:43:10 nixos swww-daemon[253357]: note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+dez 08 12:43:10 nixos swww-daemon[253357]: 15:43:10 [INFO] (main) Removed socket at "/tmp/swww/swww-wayland-0.socket"
+dez 08 12:43:10 nixos systemd[1]: [0;1;39m[0;1;31m[0;1;39mswww-daemon.service: Main process exited, code=exited, status=101/n/a[0m
+dez 08 12:43:10 nixos systemd[1]: [0;1;38:5:185m[0;1;39m[0;1;38:5:185mswww-daemon.service: Failed with result 'exit-code'.[0m
+dez 08 12:43:11 nixos systemd[1]: swww-daemon.service: Scheduled restart job, restart counter is at 3.
+dez 08 12:43:11 nixos systemd[1]: Started Wallpaper Daemon for swww.
+dez 08 12:43:11 nixos swww-daemon[253372]: thread 'main' panicked at daemon/src/main.rs:122:45:
+dez 08 12:43:11 nixos swww-daemon[253372]: failed to connect to the wayland server: NoCompositor
+dez 08 12:43:11 nixos swww-daemon[253372]: note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+dez 08 12:43:11 nixos swww-daemon[253372]: 15:43:11 [INFO] (main) Removed socket at "/tmp/swww/swww-wayland-0.socket"
+dez 08 12:43:11 nixos systemd[1]: [0;1;39m[0;1;31m[0;1;39mswww-daemon.service: Main process exited, code=exited, status=101/n/a[0m
+dez 08 12:43:11 nixos systemd[1]: [0;1;38:5:185m[0;1;39m[0;1;38:5:185mswww-daemon.service: Failed with result 'exit-code'.[0m
+dez 08 12:43:11 nixos systemd[1]: swww-daemon.service: Scheduled restart job, restart counter is at 4.
+dez 08 12:43:11 nixos systemd[1]: Started Wallpaper Daemon for swww.
+dez 08 12:43:11 nixos swww-daemon[253407]: thread 'main' panicked at daemon/src/main.rs:122:45:
+dez 08 12:43:11 nixos swww-daemon[253407]: failed to connect to the wayland server: NoCompositor
+dez 08 12:43:11 nixos swww-daemon[253407]: note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+dez 08 12:43:11 nixos swww-daemon[253407]: 15:43:11 [INFO] (main) Removed socket at "/tmp/swww/swww-wayland-0.socket"
+dez 08 12:43:11 nixos systemd[1]: [0;1;39m[0;1;31m[0;1;39mswww-daemon.service: Main process exited, code=exited, status=101/n/a[0m
+dez 08 12:43:11 nixos systemd[1]: [0;1;38:5:185m[0;1;39m[0;1;38:5:185mswww-daemon.service: Failed with result 'exit-code'.[0m
+dez 08 12:43:11 nixos systemd[1]: swww-daemon.service: Scheduled restart job, restart counter is at 5.
+dez 08 12:43:11 nixos systemd[1]: [0;1;38:5:185m[0;1;39m[0;1;38:5:185mswww-daemon.service: Start request repeated too quickly.[0m
+dez 08 12:43:11 nixos systemd[1]: [0;1;38:5:185m[0;1;39m[0;1;38:5:185mswww-daemon.service: Failed with result 'exit-code'.[0m
+dez 08 12:43:11 nixos systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start Wallpaper Daemon for swww.[0m
+dez 08 12:44:17 nixos systemd[1]: Started Wallpaper Daemon for swww.
+dez 08 12:44:17 nixos swww-daemon[255295]: thread 'main' panicked at daemon/src/main.rs:122:45:
+dez 08 12:44:17 nixos swww-daemon[255295]: failed to connect to the wayland server: NoCompositor
+dez 08 12:44:17 nixos swww-daemon[255295]: note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+dez 08 12:44:17 nixos swww-daemon[255295]: 15:44:17 [INFO] (main) Removed socket at "/tmp/swww/swww-wayland-0.socket"
+dez 08 12:44:17 nixos systemd[1]: [0;1;39m[0;1;31m[0;1;39mswww-daemon.service: Main process exited, code=exited, status=101/n/a[0m
+dez 08 12:44:17 nixos systemd[1]: [0;1;38:5:185m[0;1;39m[0;1;38:5:185mswww-daemon.service: Failed with result 'exit-code'.[0m
+dez 08 12:44:17 nixos systemd[1]: swww-daemon.service: Scheduled restart job, restart counter is at 1.
+dez 08 12:44:17 nixos systemd[1]: Started Wallpaper Daemon for swww.
+dez 08 12:44:17 nixos swww-daemon[255327]: thread 'main' panicked at daemon/src/main.rs:122:45:
+dez 08 12:44:17 nixos swww-daemon[255327]: failed to connect to the wayland server: NoCompositor
+dez 08 12:44:17 nixos swww-daemon[255327]: note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+dez 08 12:44:17 nixos swww-daemon[255327]: 15:44:17 [INFO] (main) Removed socket at "/tmp/swww/swww-wayland-0.socket"
+dez 08 12:44:17 nixos systemd[1]: [0;1;39m[0;1;31m[0;1;39mswww-daemon.service: Main process exited, code=exited, status=101/n/a[0m
+dez 08 12:44:17 nixos systemd[1]: [0;1;38:5:185m[0;1;39m[0;1;38:5:185mswww-daemon.service: Failed with result 'exit-code'.[0m
+dez 08 12:44:17 nixos systemd[1]: swww-daemon.service: Scheduled restart job, restart counter is at 2.
+dez 08 12:44:17 nixos systemd[1]: Started Wallpaper Daemon for swww.
+dez 08 12:44:17 nixos swww-daemon[255362]: thread 'main' panicked at daemon/src/main.rs:122:45:
+dez 08 12:44:17 nixos swww-daemon[255362]: failed to connect to the wayland server: NoCompositor
+dez 08 12:44:17 nixos swww-daemon[255362]: note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+dez 08 12:44:17 nixos swww-daemon[255362]: 15:44:17 [INFO] (main) Removed socket at "/tmp/swww/swww-wayland-0.socket"
+dez 08 12:44:17 nixos systemd[1]: [0;1;39m[0;1;31m[0;1;39mswww-daemon.service: Main process exited, code=exited, status=101/n/a[0m
+dez 08 12:44:17 nixos systemd[1]: [0;1;38:5:185m[0;1;39m[0;1;38:5:185mswww-daemon.service: Failed with result 'exit-code'.[0m
+dez 08 12:44:17 nixos systemd[1]: swww-daemon.service: Scheduled restart job, restart counter is at 3.
+dez 08 12:44:17 nixos systemd[1]: Started Wallpaper Daemon for swww.
+dez 08 12:44:17 nixos swww-daemon[255376]: thread 'main' panicked at daemon/src/main.rs:122:45:
+dez 08 12:44:17 nixos swww-daemon[255376]: failed to connect to the wayland server: NoCompositor
+dez 08 12:44:17 nixos swww-daemon[255376]: note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+dez 08 12:44:17 nixos swww-daemon[255376]: 15:44:17 [INFO] (main) Removed socket at "/tmp/swww/swww-wayland-0.socket"
+dez 08 12:44:17 nixos systemd[1]: [0;1;39m[0;1;31m[0;1;39mswww-daemon.service: Main process exited, code=exited, status=101/n/a[0m
+dez 08 12:44:17 nixos systemd[1]: [0;1;38:5:185m[0;1;39m[0;1;38:5:185mswww-daemon.service: Failed with result 'exit-code'.[0m
+dez 08 12:44:17 nixos systemd[1]: swww-daemon.service: Scheduled restart job, restart counter is at 4.
+dez 08 12:44:17 nixos systemd[1]: Started Wallpaper Daemon for swww.
+dez 08 12:44:17 nixos swww-daemon[255390]: thread 'main' panicked at daemon/src/main.rs:122:45:
+dez 08 12:44:17 nixos swww-daemon[255390]: failed to connect to the wayland server: NoCompositor
+dez 08 12:44:17 nixos swww-daemon[255390]: note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+dez 08 12:44:17 nixos swww-daemon[255390]: 15:44:17 [INFO] (main) Removed socket at "/tmp/swww/swww-wayland-0.socket"
+dez 08 12:44:17 nixos systemd[1]: [0;1;39m[0;1;31m[0;1;39mswww-daemon.service: Main process exited, code=exited, status=101/n/a[0m
+dez 08 12:44:17 nixos systemd[1]: [0;1;38:5:185m[0;1;39m[0;1;38:5:185mswww-daemon.service: Failed with result 'exit-code'.[0m
+dez 08 12:44:18 nixos systemd[1]: swww-daemon.service: Scheduled restart job, restart counter is at 5.
+dez 08 12:44:18 nixos systemd[1]: [0;1;38:5:185m[0;1;39m[0;1;38:5:185mswww-daemon.service: Start request repeated too quickly.[0m
+dez 08 12:44:18 nixos systemd[1]: [0;1;38:5:185m[0;1;39m[0;1;38:5:185mswww-daemon.service: Failed with result 'exit-code'.[0m
+dez 08 12:44:18 nixos systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start Wallpaper Daemon for swww.[0m

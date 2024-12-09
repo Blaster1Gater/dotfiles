@@ -173,6 +173,9 @@
      unar
      e2fsprogs
      appimage-run
+     discord-ptb
+     spotify
+     gcc
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

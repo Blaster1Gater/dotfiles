@@ -81,14 +81,13 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # Instala o zsh
+  programs.zsh.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kadu = {
     isNormalUser = true;
     description = "Carlos Eduardo Porto Da Hora";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
     shell = pkgs.zsh;
   };
 
@@ -96,17 +95,7 @@
   services.xserver.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = "kadu";
 
-  # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
-
-  # Install firefox.
-  programs.firefox.enable = true;
-
-  # Install zsh
-  programs.zsh.enable = true;
-
-  # Allow unfree packages
+  # Permitindo pacotes não livres
   nixpkgs.config.allowUnfree = true;
 
   programs.hyprland = {
@@ -118,9 +107,7 @@
 
   # Instalando e ativando o flatpak
   services.flatpak.enable = true;
-
   services.power-profiles-daemon.enable = true;
-  
   services.devmon.enable = true;
   services.gvfs.enable = true; 
   services.udisks2.enable = true;
@@ -133,35 +120,19 @@
      localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-     waybar
-     hyprpicker
-     hyprpaper
-     rofi
-     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     wget
-     alacritty
-     kitty
+  # Instalando aplicativos
+  environment.systemPackages = with pkgs; [    
+     ### Essencial para o funcionamento ###
+     firefox
+     vim
      git
      curl
      vlc
-     kate
      zip
-     unzip 
+     unzip
      brightnessctl
      alsa-utils
-     anki-bin
-     obsidian
-     arduino
-     ventoy-full
-     arduino-ide
      lm_sensors
-     nautilus
-     swww
-     pywal
-     neofetch
      procps
      power-profiles-daemon
      usbutils
@@ -171,20 +142,55 @@
      gparted
      unrar
      unar
-     gnumake
      networkmanagerapplet
      e2fsprogs
      appimage-run
+     wget
+
+     ### Hyprland ###
+     waybar
+     hyprpaper
+     hyprpicker
+     rofi
+     kitty
+     alacritty
+     swww
+     pywal
+
+     ### Importantes ###
+     kate
+     ventoy-full
+     nautilus
+     cheese
+
+     ### Biito ###
+     neofetch
+
+     ### Bão ###
      discord-ptb
      spotify
-     gcc
-     python3
-     python3Packages.pip
+
+     ### Estudo ###
+     obsidian
+     anki-bin
+
+     ### Escritorio ###
+     libreoffice-qt
+     hunspell
      krita
-     conky
-     cava
+
+     ### Desenvolvimento ###
+     gcc
+     gnumake
+     cmake
+     arduino
+     arduino-ide
+     
+     ### Wine ###
+     wineWowPackages.waylandFull
+     winetricks
   ];
 
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "24.11";
 
 }

@@ -8,10 +8,12 @@ sudo apt install -y \
     i3 i3status i3lock rofi dex \
     alacritty polybar xss-lock \
     nm-applet pactl \
-    feh git
+    feh git \
 
 # Removendo a configuração padrão
 rm ~/.config/i3 ~/.config/polybar ~/.config/alacritty ~/.config/rofi
 
 # Instalando as configurações
 cp ./config/* ~/.config/
+mkdir ~/Imagens/Wall/
+cp -r ../Wall/* ~/Imagens/Wall/

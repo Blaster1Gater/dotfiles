@@ -151,6 +151,9 @@
      waybar
      hyprpaper
      hyprpicker
+     hyprshot
+     grim
+     slurp
      rofi
      kitty
      alacritty

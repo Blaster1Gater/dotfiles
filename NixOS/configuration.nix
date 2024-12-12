@@ -44,17 +44,17 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # services.server.enable = true;
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = false;
+  # services.xserver.desktopManager.gnome.enable = false;
 
   # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "br";
-    variant = "";
-  };
+  #services.server.kb = {
+  #  layout = "br";
+  #  variant = "";
+  #};
 
   # Configure console keymap
   console.keyMap = "br-abnt2";
@@ -92,8 +92,8 @@
   };
 
   # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "kadu";
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "kadu";
 
   # Permitindo pacotes não livres
   nixpkgs.config.allowUnfree = true;
@@ -181,6 +181,7 @@
      libreoffice-qt
      hunspell
      krita
+     evince
 
      ### Desenvolvimento ###
      gcc

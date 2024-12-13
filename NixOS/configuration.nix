@@ -43,19 +43,6 @@
     LC_TIME = "pt_BR.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  # services.server.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = false;
-
-  # Configure keymap in X11
-  #services.server.kb = {
-  #  layout = "br";
-  #  variant = "";
-  #};
-
   # Configure console keymap
   console.keyMap = "br-abnt2";
 
@@ -80,16 +67,26 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
+  
+  fonts.packages = with pkgs; [
+    font-awesome
+    powerline-fonts
+    powerline-symbols
+    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+  ];
 
   # Instala o zsh
   programs.zsh.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kadu = {
     isNormalUser = true;
-    description = "Carlos Eduardo Porto Da Hora";
+    description = "Carlos Eduardo Porto da Hora";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
   };
+
+  services.xserver.displayManager.gdm.enable = true;
+  programs.hyprland = { enable = true; xwayland.enable = true; };
 
   # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = true;
@@ -98,15 +95,9 @@
   # Permitindo pacotes não livres
   nixpkgs.config.allowUnfree = true;
 
-  programs.hyprland = {
-    # Install the packages from nixpkgs
-    enable = true;
-    # Whether to enable XWayland
-    xwayland.enable = true;
-  };
-
   # Instalando e ativando o flatpak
   services.flatpak.enable = true;
+  
   services.power-profiles-daemon.enable = true;
   services.devmon.enable = true;
   services.gvfs.enable = true; 

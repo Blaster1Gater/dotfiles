@@ -29,12 +29,9 @@
 
     "custom/left4",
     "custom/cpu",           // cpu
-    "custom/leftin1",
 
-    "custom/left5",
-    "custom/right2",
+    "",
 
-    "custom/rightin1",
     "clock#time",           // time
     "custom/right3",
 
@@ -59,14 +56,14 @@
     "custom/left8",
     "battery",              // battery
 
-    "custom/leftin2",
+    "tray",
     "custom/power"          // power button
   ],
 
   // === Modules ===
 
   "custom/ws": {
-    "format": "  ",
+    "format": "",
     "tooltip": false,
     "min-length": 3,
     "max-length": 3

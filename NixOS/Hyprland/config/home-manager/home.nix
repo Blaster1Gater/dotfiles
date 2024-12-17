@@ -16,7 +16,6 @@
 
   home.sessionVariables = {
     EDITOR = "vim";
-    GITHUB_TOKEN = "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";
   };
 
   programs.vim = {

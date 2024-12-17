@@ -45,7 +45,7 @@
   ],
 
   "modules-right": [
-    "custom/media",         // media info
+    "",
 
     "custom/left6",
     "pulseaudio",           // output device
@@ -63,10 +63,8 @@
   // === Modules ===
 
   "custom/ws": {
-    "format": "",
+    "format": "󱄅",
     "tooltip": false,
-    "min-length": 3,
-    "max-length": 3
   },
 
   "hyprland/workspaces": {

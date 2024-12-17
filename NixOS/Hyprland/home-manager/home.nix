@@ -8,6 +8,8 @@
 
   home.packages = with pkgs; [
     #vim
+    #git
+    #kitty
   ];
 
   home.file = {

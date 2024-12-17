@@ -68,10 +68,14 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
   
+  # Flake
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   fonts.packages = with pkgs; [
     font-awesome
     powerline-fonts
     powerline-symbols
+    (nerdfonts.override { fonts = ["JetBrainsMono"]; })
     (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
   ];
 
@@ -103,6 +107,13 @@
   services.gvfs.enable = true; 
   services.udisks2.enable = true;
 
+  # OPENGL
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+  services.xserver.videoDrivers = ["amdgpu"];
+
   # Install Steam
   programs.steam = {
      enable = true;
@@ -111,9 +122,17 @@
      localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
 
+  programs.nix-ld.enable = true;
+
+  #programs.nix-ld.libraries = with pkgs; [
+  #  glibc
+  #  libgcc
+  #];
+
   # Instalando aplicativos
   environment.systemPackages = with pkgs; [    
      ### Essencial para o funcionamento ###
+     home-manager
      firefox
      vim
      git
@@ -137,6 +156,10 @@
      e2fsprogs
      appimage-run
      wget
+     pamixer
+     imv
+     mpv
+     kitty
 
      ### Hyprland ###
      waybar
@@ -147,15 +170,16 @@
      slurp
      rofi
      kitty
-     alacritty
      swww
      pywal
 
      ### Importantes ###
      kate
      ventoy-full
-     nautilus
+     nemo
+     ranger
      cheese
+     qbittorrent
 
      ### Biito ###
      neofetch
@@ -163,10 +187,12 @@
      ### Bão ###
      discord-ptb
      spotify
+     thokr
 
      ### Estudo ###
      obsidian
      anki-bin
+     blender
 
      ### Escritorio ###
      libreoffice-qt
@@ -178,6 +204,7 @@
      gcc
      gnumake
      cmake
+     python313
      arduino
      arduino-ide
      

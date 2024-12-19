@@ -252,6 +252,11 @@ tooltip label {
   padding-right: 5px;
   background: @tray;
 }
+
+#network {
+  background: @tray;
+}
+
 #bluetooth:hover {
   color: @hover-fg;
   text-shadow: none;

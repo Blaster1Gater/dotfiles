@@ -8,6 +8,8 @@
 
   home.packages = with pkgs; [
     #vim
+    #git
+    #kitty
   ];
 
   home.file = {
@@ -27,7 +29,7 @@
 
   programs.git = {
     enable = true;
-    userName = "Carlos Eduardo Porto Da Hora";
+    userName = "Blaster1Gater";
     userEmail = "carlosportomanduca@gmail.com";
   };
 

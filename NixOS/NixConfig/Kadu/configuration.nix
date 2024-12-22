@@ -64,7 +64,7 @@
     powerline-fonts
     powerline-symbols
     (nerdfonts.override { fonts = ["JetBrainsMono"]; })
-    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+    
   ];
 
   # Instala o zsh
@@ -100,7 +100,8 @@
     enable = true;
     enable32Bit = true;
   };
-  services.xserver.videoDrivers = ["amdgpu"];
+
+  services.xserver.videoDrivers = ["amdgpu" "modesetting"];
 
   # Install Steam
   programs.steam = {
@@ -122,6 +123,7 @@
      ### Essencial para o funcionamento ###
      home-manager
      firefox
+     mesa
      vim
      git
      curl
@@ -132,6 +134,7 @@
      alsa-utils
      lm_sensors
      procps
+     psmisc
      power-profiles-daemon
      usbutils
      udiskie
@@ -140,6 +143,7 @@
      gparted
      unrar
      unar
+     p7zip
      networkmanagerapplet
      e2fsprogs
      appimage-run
@@ -166,6 +170,7 @@
      ventoy-full
      nemo
      ranger
+     htop
      cheese
      qbittorrent
 
@@ -180,12 +185,12 @@
      ### Estudo ###
      obsidian
      anki-bin
-     blender
+     #blender
 
      ### Escritorio ###
      libreoffice-qt
      hunspell
-     krita
+     #krita
      evince
 
      ### Desenvolvimento ###
@@ -195,7 +200,13 @@
      python313
      arduino
      arduino-ide
-     
+
+     ### Jogos ###
+     mgba
+     snes9x-gtk
+     pcsx2
+     mangohud
+
      ### Wine ###
      wineWowPackages.waylandFull
      winetricks

@@ -135,6 +135,13 @@
      lm_sensors
      procps
      psmisc
+     libtool
+     m4
+     automake
+     autoconf
+     intltool
+     readline
+     readline.dev
      power-profiles-daemon
      usbutils
      udiskie

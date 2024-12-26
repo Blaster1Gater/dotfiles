@@ -11,7 +11,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -145,6 +144,7 @@
      power-profiles-daemon
      usbutils
      udiskie
+     wl-clipboard
      udisks
      blueberry
      gparted

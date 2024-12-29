@@ -108,6 +108,11 @@
      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
      localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+   };
+
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
   };
 
   programs.nix-ld.enable = true;
@@ -153,7 +158,6 @@
      p7zip
      networkmanagerapplet
      e2fsprogs
-     appimage-run
      wget
      pamixer
      imv
@@ -183,6 +187,7 @@
 
      ### Biito ###
      neofetch
+     papirus-icon-theme
 
      ### Bão ###
      discord-ptb

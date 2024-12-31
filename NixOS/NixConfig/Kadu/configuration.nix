@@ -76,13 +76,13 @@
     shell = pkgs.zsh;
   };
   
-  services.accounts-daemon.enable = true;
+  #services.accounts-daemon.enable = true;
 
   # Habilitando o xserver
-  services.xserver.enable = true;
+  #services.xserver.enable = true;
 
   # Habilitando o lightdm
-  services.xserver.displayManager.lightdm = {
+  services.xserver.displayManager.gdm = {
     enable = true;
   };
 

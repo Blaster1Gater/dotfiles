@@ -75,8 +75,18 @@
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
   };
+  
+  services.accounts-daemon.enable = true;
 
-  services.xserver.displayManager.gdm.enable = true;
+  # Habilitando o xserver
+  services.xserver.enable = true;
+
+  # Habilitando o lightdm
+  services.xserver.displayManager.lightdm = {
+    enable = true;
+  };
+
+  # Habilitando o Hyprland
   programs.hyprland = { enable = true; xwayland.enable = true; };
     
   # Enable automatic login for the user.
@@ -222,6 +232,8 @@
      ### Wine ###
      wineWowPackages.waylandFull
      winetricks
+     vkd3d
+     vulkan-tools
   ];
 
   system.stateVersion = "24.11";

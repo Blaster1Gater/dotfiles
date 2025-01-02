@@ -155,6 +155,7 @@
      autoconf
      intltool
      readline
+     file
      readline.dev
      power-profiles-daemon
      usbutils
@@ -192,6 +193,7 @@
      nemo
      ranger
      htop
+     btop
      cheese
      qbittorrent
 

@@ -75,23 +75,23 @@
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
   };
+
+  services.getty.autologinUser = "kadu";
+
   
   #services.accounts-daemon.enable = true;
 
   # Habilitando o xserver
   #services.xserver.enable = true;
 
-  # Habilitando o lightdm
-  services.xserver.displayManager.gdm = {
-    enable = true;
-  };
-
+  # Habilitando o GDM
+  #services.xserver.displayManager.gdm = { enable = true; };
+    
   # Habilitando o Hyprland
   programs.hyprland = { enable = true; xwayland.enable = true; };
     
   # Enable automatic login for the user.
-  #services.displayManager.autoLogin.enable = true;
-  #services.displayManager.autoLogin.user = "kadu";
+  #services.displayManager.autoLogin = { enable = true; user = "kadu"; };
 
   # Permitindo pacotes não livres
   nixpkgs.config.allowUnfree = true;

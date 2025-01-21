@@ -132,6 +132,9 @@
   #  libgcc
   #];
 
+  # Para Scripts
+  services.cron.enable = true;
+
   # Instalando aplicativos
   environment.systemPackages = with pkgs; [    
      ### Essencial para o funcionamento ###
@@ -175,11 +178,15 @@
      mpv
      kitty
 
+     ### Scripts ###
+     cronie
+
      ### Hyprland ###
      waybar
      hyprpaper
      hyprpicker
      hyprshot
+     hyprlock
      grim
      slurp
      rofi
@@ -196,15 +203,18 @@
      btop
      cheese
      qbittorrent
+     qalculate-gtk
 
      ### Biito ###
      neofetch
      papirus-icon-theme
+     adwaita-icon-theme
 
      ### Bão ###
      discord-ptb
      spotify
      thokr
+     telegram-desktop
 
      ### Estudo ###
      obsidian

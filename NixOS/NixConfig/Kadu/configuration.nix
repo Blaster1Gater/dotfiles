@@ -82,13 +82,14 @@
   #services.accounts-daemon.enable = true;
 
   # Habilitando o GDM
-  #services.xserver.enable = true;
-  #services.xserver.displayManager.gdm.enable = true;
-  #services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
     
   # Habilitando o Hyprland
   programs.hyprland = { enable = true; xwayland.enable = true; };
 
+  /*
   environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
   services.xserver = {
     enable = true;
@@ -117,7 +118,7 @@
         picom
      ];
     };
-  };
+  };*/
 
   # Enable automatic login for the user.
   #services.displayManager.autoLogin = { enable = true; user = "kadu"; };

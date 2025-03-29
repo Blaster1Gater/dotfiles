@@ -40,32 +40,11 @@
   # Configure console keymap
   console.keyMap = "br-abnt2";
 
-  # Definir variáveis de ambiente para Fcitx5
-  environment.sessionVariables = {
-    GTK_IM_MODULE = "fcitx";
-    QT_IM_MODULE = "fcitx";
-    XMODIFIERS = "@im=fcitx";
-    INPUT_METHOD = "fcitx";
-  };
-
-  i18n.inputMethod = {
-    type = "fcitx5";
-    enable = true;
-    fcitx5.addons = with pkgs; [
-      fcitx5-gtk
-      fcitx5-chinese-addons
-      fcitx5-nord
-      fcitx5-rime
-      librime
-      rime-data
-    ];
-  };
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
+  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -74,8 +53,6 @@
     pulse.enable = true;
   };
 
-  # services.xserver.libinput.enable = true;
-  
   # Flake
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -83,68 +60,26 @@
     font-awesome
     powerline-fonts
     powerline-symbols
-    pkgs.nerd-fonts.fira-code
-    pkgs.nerd-fonts.jetbrains-mono
-    #(nerdfonts.override { fonts = ["JetBrainsMono"]; })
+    (nerdfonts.override { fonts = ["JetBrainsMono"]; })
     
   ];
 
   # Instala o zsh
   programs.zsh.enable = true;
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.kadu = {
+  users.users.ana = {
     isNormalUser = true;
-    description = "Carlos Eduardo Porto da Hora";
+    description = "Ana Clara Batista da Silva";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
   };
-
-  #services.getty.autologinUser = "kadu";
-
-  
-  #services.accounts-daemon.enable = true;
 
   # Habilitando o GDM
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-    
-  # Habilitando o Hyprland
-  programs.hyprland = { enable = true; xwayland.enable = true; };
-
-  /*
-  environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
-  services.xserver = {
-    enable = true;
-    desktopManager = {
-      gnome.enable = true;
-      xterm.enable = false;
-    };
-
-    displayManager = {
-        gdm.enable = true;
-        defaultSession = "none+i3";
-    };
-
-    windowManager.i3 = {
-      enable = true;
-      extraPackages = with pkgs; [
-        dmenu #application launcher most people use
-        i3status # gives you the default i3 status bar
-        i3lock #default i3 screen locker
-        i3blocks #if you are planning on using i3blocks over i3status
-        polybar
-        cava
-        feh
-        kitty
-        rofi
-        picom
-     ];
-    };
-  };*/
 
   # Enable automatic login for the user.
-  #services.displayManager.autoLogin = { enable = true; user = "kadu"; };
+  services.displayManager.autoLogin = { enable = true; user = "ana"; };
 
   # Permitindo pacotes não livres
   nixpkgs.config.allowUnfree = true;
@@ -163,16 +98,6 @@
     enable32Bit = true;
   };
 
-  services.xserver.videoDrivers = ["amdgpu" "modesetting"];
-
-  # Install Steam
-  programs.steam = {
-     enable = true;
-     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-   };
-
   programs.appimage = {
     enable = true;
     binfmt = true;
@@ -180,16 +105,12 @@
 
   programs.nix-ld.enable = true;
 
-  #programs.nix-ld.libraries = with pkgs; [
-  #  glibc
-  #  libgcc
-  #];
-
   # Instalando aplicativos
   environment.systemPackages = with pkgs; [    
      ### Essencial para o funcionamento ###
      home-manager
      firefox
+     brave
      mesa
      vim
      git
@@ -229,33 +150,11 @@
      mpv
      kitty
 
-     ### Scripts ###
-     cronie
-
-     ### Hyprland ###
-     waybar
-     hyprpaper
-     hyprpicker
-     hyprshot
-     hyprlock
-     grim
-     slurp
-     rofi
-     kitty
-     swww
-     pywal
-
      ### Importantes ###
-     kdePackages.kate
-     ventoy-full
-     nemo
-     ranger
+     kate
      htop
      btop
-     cheese
-     foliate
      qbittorrent
-     qalculate-gtk   
 
      ### Biito ###
      neofetch
@@ -271,21 +170,11 @@
      ### Estudo ###
      obsidian
      anki-bin
-     #blender
 
      ### Escritorio ###
      libreoffice-qt
      hunspell
-     #krita
      evince
-
-     ### Desenvolvimento ###
-     gcc
-     gnumake
-     cmake
-     python313
-     arduino
-     arduino-ide
 
      ### Jogos ###
      mgba

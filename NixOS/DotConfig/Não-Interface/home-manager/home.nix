@@ -18,6 +18,10 @@
 
   home.sessionVariables = {
     EDITOR = "vim";
+    INPUT_METHOD = "fcitx5";
+    GTK_IM_MODULE = "fcitx";
+    QT_IM_MODULE = "fcitx";
+    XMODIFIERS = "@im=fcitx";
   };
 
   programs.vim = {
@@ -36,7 +40,7 @@
   programs.kitty = {
     enable = true;
     extraConfig = "
-      background_opacity 0.5
+      background_opacity 1
       \n
       confirm_os_window_close 0
     ";

@@ -3,7 +3,8 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+    ./hardware-configuration.nix
+    ./flatpak.nix
   ];
 
   # Bootloader.
@@ -40,13 +41,18 @@
   # Configure console keymap
   console.keyMap = "br-abnt2";
 
-  # Definir variáveis de ambiente para Fcitx5
-  environment.sessionVariables = {
+   #Definir variáveis de ambiente para Fcitx5
+   environment.sessionVariables = {
     GTK_IM_MODULE = "fcitx";
     QT_IM_MODULE = "fcitx";
     XMODIFIERS = "@im=fcitx";
     INPUT_METHOD = "fcitx";
   };
+
+  environment.variables = {
+  GI_TYPELIB_PATH = "${pkgs.gtk3}/lib/girepository-1.0:${pkgs.playerctl}/lib/girepository-1.0";
+  LD_LIBRARY_PATH = "${pkgs.lib.makeLibraryPath [ pkgs.cairo pkgs.pango pkgs.gtk3 ]}";
+};
 
   i18n.inputMethod = {
     type = "fcitx5";
@@ -54,6 +60,7 @@
     fcitx5.addons = with pkgs; [
       fcitx5-gtk
       fcitx5-chinese-addons
+      fcitx5-mozc
       fcitx5-nord
       fcitx5-rime
       librime
@@ -91,12 +98,16 @@
 
   # Instala o zsh
   programs.zsh.enable = true;
+
+  #Instala o fish
+  programs.fish.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kadu = {
     isNormalUser = true;
     description = "Carlos Eduardo Porto da Hora";
     extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
   };
 
   #services.getty.autologinUser = "kadu";
@@ -112,36 +123,39 @@
   # Habilitando o Hyprland
   programs.hyprland = { enable = true; xwayland.enable = true; };
 
-  /*
-  environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
-  services.xserver = {
-    enable = true;
-    desktopManager = {
-      gnome.enable = true;
-      xterm.enable = false;
-    };
+  #services.desktopManager.cosmic.enable = true;
+  #services.displayManager.cosmic-greeter.enable = true;
 
-    displayManager = {
-        gdm.enable = true;
-        defaultSession = "none+i3";
-    };
+  
+  #environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
+  #services.xserver = {
+  #  #enable = true;
+  #  desktopManager = {
+  #    #gnome.enable = true;
+  #    xterm.enable = false;
+  #  };
 
-    windowManager.i3 = {
-      enable = true;
-      extraPackages = with pkgs; [
-        dmenu #application launcher most people use
-        i3status # gives you the default i3 status bar
-        i3lock #default i3 screen locker
-        i3blocks #if you are planning on using i3blocks over i3status
-        polybar
-        cava
-        feh
-        kitty
-        rofi
-        picom
-     ];
-    };
-  };*/
+  #  displayManager = {
+  #      #gdm.enable = true;
+  #      defaultSession = "none+i3";
+  #  };
+
+  #  windowManager.i3 = {
+  #    enable = true;
+  #    extraPackages = with pkgs; [
+  #      dmenu #application launcher most people use
+  #      i3status # gives you the default i3 status bar
+  #      i3lock #default i3 screen locker
+  #      i3blocks #if you are planning on using i3blocks over i3status
+  #      polybar
+  #      cava
+  #      feh
+  #      kitty
+  #      rofi
+  #      picom
+  #   ];
+  #  };
+  #};
 
   # Enable automatic login for the user.
   #services.displayManager.autoLogin = { enable = true; user = "kadu"; };
@@ -190,6 +204,7 @@
      ### Essencial para o funcionamento ###
      home-manager
      firefox
+     google-chrome
      mesa
      vim
      git
@@ -229,8 +244,26 @@
      mpv
      kitty
 
+     ### Fish ###
+     oh-my-fish
+     fishPlugins.done
+     fishPlugins.fzf-fish
+     fishPlugins.forgit
+     fishPlugins.hydro
+     fishPlugins.grc
+     grc
+
      ### Scripts ###
-     cronie
+     yajl
+     pkg-config
+     playerctl
+     cairo
+     pango
+     gobject-introspection
+     librsvg
+     libjpeg
+     zlib
+     python3Packages.requests
 
      ### Hyprland ###
      waybar
@@ -255,7 +288,9 @@
      cheese
      foliate
      qbittorrent
-     qalculate-gtk   
+     qalculate-gtk
+     guake
+     xournalpp
 
      ### Biito ###
      neofetch
@@ -267,9 +302,9 @@
      spotify
      thokr
      telegram-desktop
+     protonvpn-gui
 
      ### Estudo ###
-     obsidian
      anki-bin
      #blender
 
@@ -294,10 +329,13 @@
      mangohud
 
      ### Wine ###
+     lutris
      wineWowPackages.waylandFull
      winetricks
      vkd3d
      vulkan-tools
+
+     jdk8
   ];
 
   system.stateVersion = "24.11";

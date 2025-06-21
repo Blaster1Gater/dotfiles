@@ -4,7 +4,7 @@
   home.username = "kadu";
   home.homeDirectory = "/home/kadu";
 
-  home.stateVersion = "24.05"; # Please read the comment before changing.
+  home.stateVersion = "25.05"; # Please read the comment before changing.
 
   home.packages = with pkgs; [
     #vim
@@ -40,7 +40,7 @@
   programs.kitty = {
     enable = true;
     extraConfig = "
-      background_opacity 1
+      background_opacity 0.9
       \n
       confirm_os_window_close 0
     ";

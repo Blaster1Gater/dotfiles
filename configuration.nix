@@ -16,6 +16,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
+  #networking.wireless.enable = true;
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -37,6 +38,35 @@
     LC_TELEPHONE = "pt_BR.UTF-8";
     LC_TIME = "pt_BR.UTF-8";
   };
+
+  fonts.packages = with pkgs; [
+    font-awesome
+    powerline-fonts
+    powerline-symbols
+    nerd-fonts.jetbrains-mono
+  ];
+  
+  #Definir variáveis de ambiente para Fcitx5
+  environment.sessionVariables = {
+    GTK_IM_MODULE = "fcitx";
+    QT_IM_MODULE = "fcitx";
+    XMODIFIERS = "@im=fcitx";
+    INPUT_METHOD = "fcitx";
+  };
+
+  i18n.inputMethod = {
+    type = "fcitx5";
+    enable = true;
+    fcitx5.addons = with pkgs; [
+      fcitx5-gtk
+      fcitx5-chinese-addons
+      fcitx5-mozc
+      fcitx5-nord
+      fcitx5-rime
+      librime
+      rime-data
+    ];
+  };
   
   services.power-profiles-daemon.enable = true;
   services.devmon.enable = true;
@@ -47,7 +77,7 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    extraPackages = with pkgs; [ mesa.drivers ];
+    extraPackages = with pkgs; [ mesa ];
   };
   
   programs.appimage = {
@@ -104,6 +134,8 @@
   services.xserver.xkb = {
     layout = "br";
     variant = "";
+    model = "abnt2";
+    options = "terminate:ctrl_alt_bksp";
   };
 
   # Configure console keymap
@@ -143,9 +175,6 @@
   
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # Install firefox.
-  programs.firefox.enable = true;
   
   # Install Steam
   programs.steam = {
@@ -159,6 +188,7 @@
   environment.systemPackages = with pkgs; [    
      ### Essencial para o funcionamento ###
      home-manager
+     firefox
      google-chrome
      mesa
      vim
@@ -219,6 +249,7 @@
      libjpeg
      zlib
      python3Packages.requests
+     python3Packages.colorama
 
      ### Hyprland ###
      waybar
@@ -235,6 +266,7 @@
 
      ### Importantes ###
      kdePackages.kate
+     marktext
      #ventoy-full
      nemo
      ranger
@@ -272,6 +304,13 @@
      ### Desenvolvimento ###
      arduino
      arduino-ide
+     vscode
+     python311Full
+     gcc
+     cmake
+     ninja
+
+     gimp
 
      ### Jogos ###
      mgba
@@ -286,6 +325,10 @@
      winetricks
      vkd3d
      vulkan-tools
+     wineWowPackages.stagingFull
+     dxvk
+     libva
+     glxinfo
   ];
   
   system.stateVersion = "25.05"; # Did you read the comment?

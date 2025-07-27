@@ -1,0 +1,178 @@
+# ====================
+# Variáveis e Fontes
+# ====================
+set $mod Mod4
+font pango:monospace 8
+
+# ====================
+# Bordas e Gaps
+# ====================
+default_border pixel 6
+default_floating_border pixel 0
+
+gaps inner 5
+gaps outer 0
+
+# ====================
+# Comportamento
+# ====================
+focus_follows_mouse yes
+
+floating_modifier $mod
+tiling_drag modifier titlebar
+
+# ====================
+# Execuções Automáticas
+# ====================
+exec_always --no-startup-id "sh -c ~/.config/i3/wallpaper.sh"
+exec_always setxkbmap -model abnt2 -layout br,ru -variant ,phonetic -option grp:alt_shift_toggle
+exec_always picom -f
+exec_always "sh -c ~/.config/polybar/polybar.sh"
+
+exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id nm-applet
+
+# ====================
+# Variável para atualizar i3status
+# ====================
+set $refresh_i3status killall -SIGUSR1 i3status
+
+# ====================
+# Scratchpad
+# ====================
+for_window [class="floatingterm"] floating enable, move to scratchpad
+
+bindsym $mod+Shift+minus move to scratchpad
+bindsym $mod+Shift+plus floating disable; floating enable
+bindsym $mod+minus scratchpad show
+
+# ====================
+# Controle de Áudio e Brilho
+# ====================
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 10%+ && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 10%- && $refresh_i3status
+bindsym XF86AudioMute       exec --no-startup-id amixer set Master toggle && $refresh_i3status
+bindsym XF86AudioMicMute    exec --no-startup-id amixer set Capture toggle && $refresh_i3status
+
+bindsym XF86MonBrightnessUp exec sudo brightnessctl s 1%+
+bindsym XF86MonBrightnessDown exec sudo brightnessctl s 1%-
+
+# ====================
+# Atalhos para programas
+# ====================
+bindsym $mod+Return exec kitty
+bindsym $mod+t exec kitty
+bindsym $mod+b exec firefox
+bindsym $mod+a exec nemo
+
+bindsym $mod+x kill
+bindsym $mod+BackSpace kill
+
+bindsym $mod+d exec ~/.config/rofi/scripts/launcher_t3
+bindsym $mod+p exec ~/.config/rofi/scripts/powermenu_t1
+bindsym $mod+q exec "sh -c ~/.config/rofi/web.sh"
+
+# ====================
+# Navegação entre janelas
+# ====================
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+ccedilla focus right
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# ====================
+# Mover janelas (com Shift)
+# ====================
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# ====================
+# Layouts e janelas flutuantes
+# ====================
+bindsym $mod+h split h
+bindsym $mod+v split v
+bindsym $mod+f fullscreen toggle
+
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+
+# ====================
+# Workspaces
+# ====================
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym Print exec "flameshot gui"
+
+# ====================
+# Reiniciar e sair do i3
+# ====================
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# ====================
+# Modo de redimensionamento
+# ====================
+mode "resize" {
+    bindsym $mod+Control+Left  resize shrink width 1 px or 1 ppt
+    bindsym $mod+Control+Right resize grow   width 1 px or 1 ppt
+    bindsym $mod+Control+Up    resize shrink height 1 px or 1 ppt
+    bindsym $mod+Control+Down  resize grow   height 1 px or 1 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# ====================
+# Cores do cliente (janelas)
+# ====================
+client.focused          #426ebc   #2f4f84    #a0b8e6   #5c4e7c
+client.focused_inactive #2f3b56   #1a2330    #7a8ca3   #3c4a66
+client.unfocused        #1a2330   #1a2330    #5f6c80   #2a3548
+client.urgent           #d1697a   #40262a    #e0bfc2   #d1697a
+client.placeholder      #2b3444   #1e2633    #7a8da8   #3e4e6b

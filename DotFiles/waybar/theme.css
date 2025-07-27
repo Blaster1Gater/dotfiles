@@ -1,0 +1,38 @@
+/* Paleta inspirada na imagem: céu azul profundo com tons lilás-rosados e sombra */
+@define-color main-fg         #d6e0ff;  /* Azul claro para texto */
+@define-color main-bg         #0b0f1a;  /* Azul-marinho escuro para fundo */
+@define-color main-br         #b3c5ff;  /* Borda em azul suave */
+
+@define-color active-bg       #4f5d99;  /* Azul acinzentado para itens ativos */
+@define-color active-fg       #ffffff;  /* Texto claro em ativos */
+
+@define-color hover-bg        #2d3650;  /* Azul mais visível para hover */
+@define-color hover-fg        rgba(214, 224, 255, 0.75);
+
+@define-color white           #ffffff;
+@define-color black           #000000;
+
+/* Módulos */
+@define-color module-fg       #cdb4f8;  /* Lavanda clara */
+@define-color workspaces      #1b2233;
+
+@define-color cpuinfo         #1a2233;
+@define-color memory          #212b40;
+@define-color cpu             #2d3650;
+@define-color distro-fg       #0b0f1a;
+@define-color distro-bg       #4f5d99;
+@define-color time            #2d3650;
+@define-color date            #212b40;
+@define-color tray            #1a2233;
+
+@define-color pulseaudio      #1a2233;
+@define-color backlight       #212b40;
+@define-color battery         #2d3650;
+@define-color power           #4f5d99;
+
+/* Estados */
+@define-color good            #cdb4f8;
+@define-color warning         #ffdca8;
+@define-color critical        #f38ba8;
+@define-color full            #b4f0c1;
+@define-color charging        #d6e0ff;

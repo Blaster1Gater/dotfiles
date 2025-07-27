@@ -1,0 +1,38 @@
+#!/bin/bash
+
+bar="▁▂▃▄▅▆▇█"
+
+# Função para gerar uma cor hexadecimal aleatória
+random_color() {
+    printf "#%02X%02X%02X" $((RANDOM % 256)) $((RANDOM % 256)) $((RANDOM % 256))
+}
+
+# Configuração do cava
+config_file="/tmp/polybar_cava_config"
+cat > "$config_file" <<EOF
+[general]
+bars = 20
+
+[output]
+method = raw
+raw_target = /dev/stdout
+data_format = ascii
+ascii_max_range = 7
+separator = ;
+EOF
+
+# Processar a saída do cava
+cava -p "$config_file" | while read -r line; do
+    IFS=';' read -ra values <<< "$line"
+    output=""
+    for value in "${values[@]}"; do
+        [[ "$value" =~ ^[0-7]$ ]] || continue
+        char="${bar:$value:1}"
+        color=$(random_color)
+        output+="%{F$color}$char%{F-}"
+    done
+    echo "$output"
+done
+
+
+

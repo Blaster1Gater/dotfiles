@@ -6,6 +6,7 @@ let
   desiredFlatpaks = [
     "org.musescore.MuseScore"
     "com.orama_interactive.Pixelorama"
+    "de.haeckerfelix.Shortwave"
   ];
 in {
   system.userActivationScripts.flatpakManagement = {

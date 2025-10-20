@@ -1,0 +1,185 @@
+{
+  "layer": "top",
+  "height": 37,
+  "spacing": 5,
+  // Choose the order of the modules
+  "modules-left": ["image", "hyprland/workspaces", "mpris", "custom/spotify"],
+  "modules-center": ["user"],
+  "modules-right": [
+    "tray",
+    "bluetooth",
+    "power-profiles-daemon",
+    "pulseaudio",
+    "memory",
+    "cpu",
+    "weather",
+    "network",
+    "battery",
+    "clock",
+    "custom/notification",
+    "custom/power"
+  ],
+  "hyprland/window": {
+    "separate-outputs": false
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "urgent": "",
+      "active": "",
+      "default": ""
+    },
+    "sort-by-number": true,
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": []
+    }
+  },
+    "memory": {
+      "interval": 1,
+      "rotate": 270,
+      "format": "{icon}",
+      "format-icons": ["󰝦","󰪞","󰪟","󰪠","󰪡","󰪢","󰪣","󰪤","󰪥"],
+      "max-length": 10
+  },
+  "cpu": {
+      "interval": 1,
+      "format": "{icon}",
+      "rotate": 270,
+      "format-icons": ["󰝦","󰪞","󰪟","󰪠","󰪡","󰪢","󰪣","󰪤","󰪥"],
+  },
+  "user": {
+    "format": "  Kadu | ({work_H}hr {work_M} mins ↑)",
+    "interval": 60,
+    "height": 23,
+    "width": 23,
+    "icon": true,
+    "avatar": "",
+  },
+  "tray": {
+    "spacing": 10
+  },
+  "clock": {
+    "tooltip-format": "{:%A, %B %d, %Y}",
+    "format": "{:%I:%M}"
+  },
+  "battery": {
+    "states": {
+      "warning": 40
+    },
+    "format": "{capacity}% {icon}",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "format-charging": "󰂄 {capacity}%",
+    "format-warning": "󰂃 {capacity}%",
+    "tooltip-format": "{capacity}%"
+  },
+  "network": {
+    "format-wifi": "{essid}",
+    "format-ethernet": "",
+    "format-disconnected": "",
+    "tooltip-format": "{ipaddr}",
+    "tooltip-format-ethernet": "{ifname} ",
+    "on-click": "hyprctl dispatch exec '[float]' '$TERMINAL -e nmtui'"
+  },
+  "pulseaudio": {
+    "scroll-step": 5, // %, can be a float
+    "format": "{icon}",
+    "format-muted": "",
+    "format-icons": {
+      "default": ["", "", ""]
+    },
+    "tooltip-format": "{volume}% volume",
+    "on-click": "$HOME/.config/scripts/volume --toggle",
+    "on-scroll-up": "$HOME/.config/scripts/volume --inc",
+    "on-scroll-down": "$HOME/.config/scripts/volume --dec",
+  },
+  "custom/power": {
+    "format": "󰐥",
+    "on-click": "wlogout"
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+  "image": {
+    "path": "/home/kadu/.config/waybar/nix.svg",
+    "size": 20,
+    "interval": 5,
+    "on-click": "firefox https://search.nixos.org/packages",
+  },
+  "bluetooth": {
+	// "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+	"format": "󰂯",
+	"format-disabled": "󰂲", // an empty format will hide the module
+	"format-connected": "󰂱",
+	"tooltip-format": "{controller_alias}\t{controller_address}",
+	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+	"on-click": "blueman-manager",
+  },
+  "custom/spotify": {
+        "interval": 1,
+        "return-type": "json",
+        "exec": "~/.config/scripts/music",
+        "on-click": "playerctl play-pause",
+        "escape": true
+  },
+  "mpris": {
+	"format": "{player_icon} {dynamic}",
+	"format-paused": "<span color='grey'>{status_icon} {dynamic}</span>",
+	"max-length": 50,
+	"player-icons": {
+		"default": "⏸",
+		"mpv": "🎵"
+	},
+	"status-icons": {
+		"paused": "▶"
+	},
+	// "ignored-players": ["firefox"]
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{} {icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "",
+      "dnd-notification": " ",
+      "dnd-none": "󰂛",
+      "inhibited-notification": " ",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": " ",
+      "dnd-inhibited-none": " "
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "sleep 0.1 && swaync-client -t -sw",
+    "on-click-right": "sleep 0.1 && swaync-client -d -sw",
+    "escape": true
+  },
+  "custom/weather": {
+  "exec": "~/.config/scripts/weather",
+  "interval": 3600,
+  "format": "{}",
+  "return-type": "text"
+}
+
+}
+}
+
+// vim: ft=jsonc

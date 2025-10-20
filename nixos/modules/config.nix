@@ -38,5 +38,9 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  virtualisation.docker = {
+    enable = true;
+  };
+  
   system.stateVersion = "25.05";
 }

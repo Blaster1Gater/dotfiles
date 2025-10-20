@@ -164,5 +164,7 @@
 
      fastfetch
      icu
-  ];
+     freerdp
+     scanmem
+   ];
 }
